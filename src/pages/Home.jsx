@@ -6,14 +6,35 @@ import Grid from '@mui/material/Grid';
 import { Post } from '../components/Post';
 import { TagsBlock } from '../components/TagsBlock';
 import { CommentsBlock } from '../components/CommentsBlock';
+import ImageSlider from '../components/Slider/ImageSlider'; // Импорт Slider
 
 export const Home = () => {
+  const slides = [
+    { url: 'http://localhost:3000/picture_1.jpg', title: 'Beach1' },
+    { url: 'http://localhost:3000/picture_2.jpg', title: 'Beach2' },
+    { url: 'http://localhost:3000/picture_3.jpg', title: 'Beach3' },
+    { url: 'http://localhost:3000/picture_4.jpg', title: 'Beach4' },
+    { url: 'http://localhost:3000/picture_5.jpg', title: 'Beach5' },
+    { url: 'http://localhost:3000/picture_6.jpg', title: 'Beach6' },
+  ];
+
+  const containerStyles = {
+    width: '1200px',
+    height: '400px',
+    margin: '0 auto',
+    marginBottom: '15px', 
+  };
   return (
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
         <Tab label="Новые" />
         <Tab label="Популярные" />
       </Tabs>
+
+      <div style={containerStyles}>
+        <ImageSlider slides={slides} />
+      </div>
+      
       <Grid container spacing={4}>
         <Grid xs={8} item>
           {[...Array(5)].map(() => (
